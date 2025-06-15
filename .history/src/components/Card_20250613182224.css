@@ -1,0 +1,26 @@
+.card{
+    height: 50vh;
+    width: 60vw;
+    color: #4a90e2;
+    background-color: #000000;
+    border-radius: 8px;
+    padding: 1.2em;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.category{
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.card::active{
+    box-shadow: 0 2px 4px #2ce;
+}
+
+.card h2 {
+    font-size: 3em;
+    margin: 0.5em;
+
+}

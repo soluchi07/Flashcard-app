@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "question": "What is two's complement representation, and why is it used?",
+        "answer": "It represents signed integers; negative numbers are stored by inverting bits of the positive value and adding 1, simplifying arithmetic operations.",
+        "category": " Data Representation",
+        "image": ""
+    },
+    {
+        "id": "2",
+        "question": "How do you convert a decimal number to IEEE-754 single precision?",
+        "answer": " Convert integer part to binary, convert fraction, normalize to 1.x * 2^exp, bias the exponent (add 127), assemble: 1 bit sign, 8-bit exponent, 23-bit mantissa.",
+        "image": "",
+        "category": " Data Representation"
+    },
+    {   
+        "id": "3",
+        "question": "How do you detect overflow in two's complement addition?",
+        "answer":"If two positive numbers yield a negative result, or two negative numbers yield a positive result.",
+        "category": " Data Representation",
+        "image": ""
+    },
+    {
+        "id": "4",
+        "question": "Convert the decimal number −13 to 8-bit two’s complement.",
+        "answer": "Little-endian stores the least significant byte first, while big-endian stores the most significant byte first.",
+        "category": " Data Representation",
+        "image": ""
+    },
+    {
+        "id": "5",
+        "question": "How do you convert a binary number to hexadecimal?",
+        "answer": "Group binary digits into sets of four (from right), convert each group to its hexadecimal equivalent.",
+        "category": " Data Representation",
+        "image": ""
+    }
+]
