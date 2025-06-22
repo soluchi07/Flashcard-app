@@ -143,9 +143,13 @@ const Card_DATA = [
 function App() {
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
-  const [card_text, setCardText] = useState(Card_DATA[index].question)
+  const [cardArray, setCardArray] = useState(Card_DATA)
+  const [card_text, setCardText] = useState(cardArray[index].question)
   const [position, setPosition] = useState([' edge',''])
   const [isCorrect, setIsCorrect] = useState('')
+  const [mastered, setMastered] = useState([])
+  const [isChecked, setIsChecked] = useState(false);
+  
 
   // const async flipCard = () => {
   //   setFlipped((flipped) => !flipped)
@@ -161,45 +165,57 @@ function App() {
     const newFlipped = !flipped;
     setFlipped(newFlipped);
     if (newFlipped) {
-      setCardText(Card_DATA[index].answer);
+      setCardText(cardArray[index].answer);
     } else{
-      setCardText(Card_DATA[index].question);
+      setCardText(cardArray[index].question);
     }
     setIsCorrect('');
     // nextCard();
     // setFlipped(false);
   }
  
-  const image = Card_DATA[index].image
-  const category = Card_DATA[index].category
+  const image = cardArray[index].image
+  const category = cardArray[index].category
 
   const nextCard = () => {
-    if (index === Card_DATA.length - 1){
+    console.log(cardArray);
+    if (index === cardArray.length - 1){
         setPosition(['',' edge']);
-    } else{
-    const newIndex = (index + 1) % Card_DATA.length;
+    // } else if(mastered.includes(index+1)){
+    //     nextCard();                
+    } 
+    else{
+    const newIndex = (index + 1) % cardArray.length;
     setPosition('')
     setIndex(newIndex);
     setFlipped(false)
-    setCardText(Card_DATA[newIndex].question);}
+    setCardText(cardArray[newIndex].question);}
     setIsCorrect('');
+    setIsChecked(false);
+
   }
   const prevCard = () => {
+    console.log(cardArray);
+
     if (index === 0){
         setPosition([' edge', '']);
-    }else {
+    // } else if(mastered.includes(index-1)){
+    //     prevCard();                
+    } 
+    else {
     let newIndex;
     newIndex = (index - 1);
     setPosition('')
     setIndex(newIndex);
     setFlipped(false)
-    setCardText(Card_DATA[newIndex].question);}
+    setCardText(cardArray[newIndex].question);}
     setIsCorrect('');
+    setIsChecked(false);
 }
  
     const checkAnswer = (formData) => {
         const answer = formData.get('answer');
-        const words = Card_DATA[index].keywords;
+        const words = cardArray[index].keywords;
         for (let i = 0; i<words.length; i++){
             if (answer.includes(words[i])){
                 setIsCorrect('correct');
@@ -208,20 +224,30 @@ function App() {
         }
         setIsCorrect('wrong')
     }
+
+    const handleMastered = () =>{
+        setMastered([...mastered,index+1])
+        setCardArray(cardArray.slice(index+1))
+    }
     
+
 
   return (
     <>
             <h1>Computer Architecture Flashcards</h1>
             <h2>Here are a few architecture problems to help you pass for your next CS132 final!</h2>
-            <h3>Card {index + 1} of {Card_DATA.length}</h3>
+            <h3>Card {index + 1} of {cardArray.length}</h3>
             <div onClick={flipCard}>
                 <Card text={card_text} category={category} image={image} flipped={flipped} isCorrect={isCorrect}/>
+            </div>
+            <div className='mark-card'>
+                <p>Mark As Mastered</p>
+                <input type='checkbox' name='marked' onClick={handleMastered} checked={isChecked} onChange={() => setIsChecked(!isChecked)}/>
             </div>
             <div>
                 <form action={checkAnswer}>
                     <p>Write your answer: </p>
-                    <input name='answer' type='text' placeholder='Please write your answer...' className={isCorrect}/>
+                    <input name='answer' type='text' placeholder='Please write your answer...' className={isCorrect} autoComplete='off'/>
                     <button type='submit'>➡️</button>
                 </form>
             </div>            

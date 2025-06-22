@@ -13,7 +13,7 @@ function Card(props) {
                 <h2>{props.text}</h2>
                 <img src={props.image} />
                 <p className="category">{props.category}</p>
-            </div>
+            </div>            
         </div>
     );
 }
