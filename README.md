@@ -30,7 +30,7 @@ The following **optional** features are implemented:
   - The current counter increments when a user guesses an answer correctly
   - The current counter resets to 0 when a user guesses an answer incorrectly
   - A separate counter tracks the longest streak, updating if the value of the current streak counter exceeds the value of the longest streak counter 
-- [x] A user can mark a card that they have mastered and have it removed from the pool of displayed cards
+- [x] A user can mark a card that they have mastered and have it removed from the pool of displayed cards (not included in gif walkthrough)
   - The user can mark a card to indicate that it has been mastered
   - Mastered cards are removed from the pool of displayed cards and added to a list of mastered cards
 
