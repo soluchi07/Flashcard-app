@@ -4,7 +4,7 @@ import './Card.css'
 function Card(props) {
     
     return (
-        <div className={`card${props.flipped ? " flipped" : ""}`}>
+        <div className={`card${props.flipped ? " flipped" : ""} ${props.isCorrect}`}>
             <div className="card-front">
                 <h2>{props.text}</h2>
                 <p className="category">{props.category}</p>

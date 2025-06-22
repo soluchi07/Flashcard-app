@@ -23,6 +23,13 @@
 .card:hover {
     box-shadow: 0 0 5px 2px #2c3e50
 }
+.cover.correct{
+    box-shadow: 0 0 5px 2px #c5c5c5;
+}
+
+.cover.wrong{
+    box-shadow: 0 0 5px 2px #701212;
+}
 
 .category{
     font-size: 1.2em;

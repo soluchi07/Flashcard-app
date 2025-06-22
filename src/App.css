@@ -9,17 +9,45 @@
   align-items:center;
 }
 
-
+form{
+  display: flex;
+  justify-content: center;
+  flex-direction:row;
+  align-items:center;
+}
 .card {
   padding: 2em;
 }
 
-button{
-  background-color: #4a90e2;
-  color: black;
-  margin: 5px;
-  border-radius: 4px;
-  cursor: pointer;
+
+
+
+input{
+  outline: none;
+  background-color: black;
+  border: none;
+  border-bottom: 1.5px solid #407cc2;
+  color: #518ccf ;
+
+}
+
+.wrong{
+  border-bottom: 3px solid rgb(112, 18, 18);
+}
+
+.correct{
+  border-bottom: 3px solid rgb(197, 197, 197);
+}
+
+input:focus {
+  border-bottom: 3px solid #407cc2;
+  
+}
+
+input::placeholder{
+  color: #407cc2;
+  opacity: 0.5;
+  
 }
 
 button:focus{
@@ -32,7 +60,32 @@ button:active {
   transform: translateY(2px);
 }
 
-h1, h2, h3{
+button{
+  background-color: #4a90e2;
+  color: black;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button{
+  padding: 2px;
+}
+
+.edge:focus{
+    box-shadow: none;
+
+}
+.edge{
+  opacity: 0.6;
+  cursor:not-allowed ;
+
+}
+.edge:active{
+  transform: none;
+}
+
+h1, h2, h3, p{
   color: #4a90e2;
   text-shadow: -1px -1px 0 #3a3a2e, 1px -1px 0 #3a3a2e, -1px 1px 0 #3a3a2e, 1px 1px 0 #3a3a2e;
   margin: 0.5em;
